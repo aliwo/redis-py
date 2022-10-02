@@ -257,6 +257,9 @@ class Redis(
         return self.initialize().__await__()
 
     async def initialize(self: _RedisT) -> _RedisT:
+        """
+        init
+        """
         if self.single_connection_client and self.connection is None:
             self.connection = await self.connection_pool.get_connection("_")
         return self
